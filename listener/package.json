@@ -1,0 +1,26 @@
+{
+  "name": "pushpinbackend",
+  "version": "0.0.1",
+  "description": "this is a backend server that acts as backend for pushpin streaming at port 8000",
+  "main": "backend.js",
+  "scripts": {
+    "test": "backend.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bharath-naik/livestreamaudiopushpin/issues"
+  },
+  "keywords": [
+    "pushpin",
+    "backend",
+    "8000"
+  ],
+  "author": "Bharath Naik",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "path": "^0.12.7",
+    "throttle": "^1.0.3"
+  }
+}
