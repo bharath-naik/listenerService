@@ -43,8 +43,8 @@ steps:
   args:
   - '-c'
   - |
-    gcloud source repos clone speaker-service-env --project=production-309509 && \
-    cd speaker-service-env && \
+    gcloud source repos clone listener-service-env --project=production-309509 && \
+    cd listener-service-env && \
     git checkout candidate && \
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
 # This step generates the new manifest
