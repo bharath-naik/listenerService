@@ -45,7 +45,7 @@ steps:
   - |
     gcloud source repos clone listener-service-env --project=production-309509 && \
     cd listener-service-env && \
-    git checkout candidate && \
+    git checkout master && \
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
 # This step generates the new manifest
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -69,5 +69,5 @@ steps:
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/audios:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository listener-service-env
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
-    git push origin candidate
+    git push origin master
 # [END cloudbuild-trigger-cd]
