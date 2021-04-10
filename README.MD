@@ -1,1 +1,1 @@
-listener service of audio recieved from speaker service repo
+listener service of audio recieved from speaker service repository
