@@ -36,7 +36,7 @@ steps:
 # [END cloudbuild]
 
 # [START cloudbuild-trigger-cd]
-# This step clones the speaker-service-env repository
+# This step clones the listener-service-env repository
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Clone env repository
   entrypoint: /bin/sh
@@ -55,8 +55,8 @@ steps:
   - '-c'
   - |
      sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes.yaml.tpl | \
-     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > speaker-service-env/kubernetes.yaml
-# This step pushes the manifest back to speaker-service-env
+     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > listener-service-env/kubernetes.yaml
+# This step pushes the manifest back to listener-service-env
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Push manifest
   entrypoint: /bin/sh
@@ -64,10 +64,10 @@ steps:
   - '-c'
   - |
     set -x && \
-    cd speaker-service-env && \
+    cd listener-service-env && \
     git add kubernetes.yaml && \
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/audios:${SHORT_SHA}
-    Built from commit ${COMMIT_SHA} of repository speaker-service-env
+    Built from commit ${COMMIT_SHA} of repository listener-service-env
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
     git push origin candidate
 # [END cloudbuild-trigger-cd]
