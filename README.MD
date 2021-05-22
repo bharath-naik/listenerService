@@ -1,2 +1,2 @@
 listener-service of audio recieved from speaker-service repository...
-deployment testing part 3
+deployment testing part 6
